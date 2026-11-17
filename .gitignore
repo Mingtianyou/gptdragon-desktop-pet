@@ -1,0 +1,11 @@
+.DS_Store
+build/
+*.app/
+*.zip
+macos/Actions/
+macos/Rows/
+macos/AppIcon.icns
+macos/spritesheet.webp
+*.pem
+*.p12
+.env*

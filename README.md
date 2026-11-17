@@ -2,9 +2,49 @@
 
 ## 原始形象与致谢
 
-- **原形象素材创作者**：哔哩哔哩 **@ZipZipPipe**、**@这个刀子真甜**（据上游仓库的素材说明）。
-- **上游宠物图集**：[weit0529/gpt-pet · GPT 娘](https://github.com/weit0529/gpt-pet)。上游图集的版权声明与许可见 [MIT LICENSE](https://github.com/weit0529/gpt-pet/blob/main/LICENSE)。
+**原形象素材创作者为哔哩哔哩 @ZipZipPipe、@这个刀子真甜。** 此署名依据上游仓库的素材说明。
 
-本项目是 macOS 和 Windows 上的独立桌宠，提供 Codex 任务状态、审批提醒和可选的闲聊功能。
+**上游宠物图集由 weit0529/gpt-pet 提供。** 感谢原形象创作者和上游维护者。基础图集附原项目的 MIT 版权声明。 [原项目与素材说明](https://github.com/weit0529/gpt-pet) · [原项目许可](https://github.com/weit0529/gpt-pet/blob/main/LICENSE)
 
-这里是项目发布仓库，源码与安装包正在整理。
+这是一个可在桌面独立运行的龙娘桌宠，提供 Codex 任务状态、审批提示、文件入口，以及可选的 DeepSeek 闲聊。项目由社区维护。
+
+## 下载
+
+Mac 安装包面向 Apple 芯片，最低系统版本为 macOS 13。下载 ZIP 并解压，将其中的 App 拖到「应用程序」。替换前先退出旧桌宠。当前分享包采用本地临时签名，首次打开可能出现 macOS 的开发者验证提示。 [Mac 最新下载](https://github.com/Mingtianyou/gptdragon-desktop-pet/releases/tag/macos-stable) · [Apple 的打开提示说明](https://support.apple.com/zh-cn/102445)
+
+Windows 版本另行维护，安装包整理后也会在 Releases 发布。
+
+## 使用
+
+- 鼠标靠近脚下胶囊，可展开输入、额度和活动入口。输入栏可切换任务与闲聊，任务入口会在 Codex 打开草稿。
+- 头顶显示项目名与工作阶段，多任务点击叠放气泡可展开。任务完成时用绿色完成标识显示，额度在下一行单独展示，提示保留约 25 秒。
+- 可识别的审批在头顶显示。复杂或信息不完整的请求通过卡片入口回到 Codex 处理。状态及额度功能需要自行安装并登录 Codex。
+- 「Codex 活动」中的文件入口按对话折叠显示近期交付文件。
+- DeepSeek API Key 在右键「数据管理」中配置，保存在当前设备的钥匙串。右键可修改闲聊人设，也可切换 Codex 额度与 DeepSeek 余额。
+- 可选的 Apple Music 联动读取播放状态，让龙娘显示唱歌动作。首次启用时可能需要系统自动化授权。
+- 右键菜单可调整大小、预览动作、恢复位置、检查更新，以及打开这个项目和原作者说明。
+
+## 点击下载更新
+
+启动约 12 秒后检查一次，运行期间每 6 小时再检查。发现适用于 Mac Apple 芯片的新版时，胶囊最右侧出现更新入口。点击后直接下载 ZIP 到本机「下载」目录，核对 GitHub 返回的 SHA-256 和实际文件长度，下载完成后在访达中选中。
+
+解压后退出旧桌宠，再把新版拖到原位置完成替换。密钥与设置使用设备上的现有存储。服务器和 Apple 开发者会员均无需由使用者配置。
+
+## 从源码构建 Mac 版
+
+需要 Apple 芯片 Mac、Xcode 命令行工具及支持当前 AppKit API 的 macOS SDK。动画资源在 Release 的 App 内。先下载并解压一个 Mac Release，设置其路径后构建。
+
+```bash
+export GPTDRAGON_ASSET_APP="/完整路径/GPT娘桌宠.app"
+bash macos/build.sh ./build
+```
+
+构建结果是 `build/GPT娘桌宠.app`。源码版本与安装包可能领先于上一个 Release，实际行为以当前发布说明为准。
+
+## 隐私
+
+每个人配置自己的登录与密钥。仓库及分享包只包含代码、公开资源和说明。DeepSeek 闲聊会将人设、输入及有限的近期闲聊上下文发送给 DeepSeek，API 使用按该服务规则计费。Codex 本地状态通过本机读取和连接获取。
+
+## 许可
+
+本仓库独立应用源码使用 MIT，原始图集保留其上游版权和 MIT 许可。视频导出的新增动作及应用图标与源码分别管理，公开再分发时需核对这些素材各自的授权。第三方产品名称及标识归各自权利人。 [源码许可](LICENSE) · [基础图集原始许可](macos/图集许可证.txt)
